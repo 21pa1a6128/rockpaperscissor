@@ -1,0 +1,88 @@
+<!Doctype html>
+<html>
+<head>
+    <title>rock papers scissors</title>
+    <style>
+        *{
+            margin:0;padding:0;
+        }
+        body{
+            text-align:center;
+            background-color: rgb(225, 226, 135);
+
+        }
+        h1{
+            font-family:'Rubik Moonrocks','cursive';
+            font-size: 100px;
+            color:rgb(53, 6, 128);
+        }
+        h3{
+            font-family: monospace;
+            color:green;
+            font-size:50px;
+            position:relative;
+            text-align: left;
+            left:20vw;
+        }
+        h2{
+            font-family: 'Cinzel', serif;
+            color: orange;
+            font-size: 60px;            
+        } 
+        button{
+            padding:10px 30px;
+            font-size: 22px;
+            background-color: rgb(255, 102, 0);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Rubik+Moonrocks&display=swap" rel="stylesheet">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>rock paper scissors game</h1>
+    <h3>you chose :</h3>
+    <h3 id="robo">robot chose :</h3>
+    <h1 id="h1"></h1>
+    <h2>select you choice</h2>
+    <button id="rock">rock</button>
+    <button id="paper">paper</button>
+    <button id="scissor">scissor</button>
+</body>
+<script>
+    function robochose(){
+    let robo=Math.ceil(Math.random()*3);
+    if(robo==1)robo="rock";
+    if(robo==2)robo="paper";
+    if(robo==3)robo="scissor";
+    document.getElementById("robo").innerHTML="robot chose : "+robo;
+    return robo;
+    }
+    document.getElementById("rock").onclick=function(){
+        document.getElementsByTagName("h3")[0].innerHTML="you chose : rock";
+        let r=robochose();
+        if(r=="rock")document.getElementById("h1").innerHTMl="This is a draw!!!!!";
+        if(r=="paper")document.getElementById("h1").innerHTML="You lost this!!!";
+        if(r=="scissor")document.getElementById("h1").innerHTML="Yesssssh YOUUUU WONNN!!!!!";
+    }
+    document.getElementById("paper").onclick=function(){
+        document.getElementsByTagName("h3")[0].innerHTML="you chose : paper";
+        let r=robochose();
+        if(r=="rock")document.getElementById("h1").innerHTMl="Yesssssh YOUUUU WONNN!!!!!";
+        if(r=="paper")document.getElementById("h1").innerHTML="This is a draw!!!!!";
+        if(r=="scissor")document.getElementById("h1").innerHTML="You lost this!!!";
+    }
+    document.getElementById("scissor").onclick=function(){
+        document.getElementsByTagName("h3")[0].innerHTML="you chose : scissor";
+        let r=robochose();
+        if(r=="rock")document.getElementById("h1").innerHTMl="You lost this!!!";
+        if(r=="paper")document.getElementById("h1").innerHTML="Yesssssh YOUUUU WONNN!!!!!";
+        if(r=="scissor")document.getElementById("h1").innerHTML="This is a draw!!!!!";
+    }
+</script>
+</html>
